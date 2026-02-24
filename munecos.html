@@ -296,6 +296,37 @@ footer p { font-size: 0.75rem; }
   font-weight: 300;
 }
 </style>
+
+/* GALLERY */
+.gallery { position: relative; height: 300px; overflow: hidden; background: var(--linen); }
+.gallery img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gallery img.active { opacity: 1; }
+.gallery-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.85); border: none; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  z-index: 5; transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.gallery-btn:hover { background: white; }
+.gallery-btn.prev { left: 0.6rem; }
+.gallery-btn.next { right: 0.6rem; }
+.gallery-dots {
+  position: absolute; bottom: 0.6rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px;
+}
+.gallery-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.5); transition: background 0.2s;
+}
+.gallery-dot.active { background: white; }
+
+<title>Muñecos · Inma y Punto</title>
 </head>
 <body>
 <div style="background:var(--sage-dark);color:white;text-align:center;padding:0.6rem 1rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;">
@@ -349,84 +380,78 @@ footer p { font-size: 0.75rem; }
   </div>
 </div>
 
-
 <div class="page-hero">
   <span class="tag">Colección</span>
   <h1>Muñecos</h1>
   <p>Figuras de crochet artesanales únicas. Ideales para regalar o decorar con mimo tu hogar.</p>
 </div>
+
 <section class="products-section">
   <div class="products-grid">
     
 <div class="product-card reveal">
   <span class="product-badge">Más pedido</span>
-  <div class="product-img">🐻</div>
+  <div class="gallery" data-total="2">
+          <img src="conejovestidogris1.jpeg" class="active" alt="Conejita de apego"><img src="conejovestidogris2.jpeg" class="" alt="Conejita de apego">
+          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
+          <button class="gallery-btn next" onclick="galNext(this)">›</button>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
+        </div>
   <div class="product-body">
-    <div class="product-name">Osito Clásico</div>
-    <p class="product-desc">El osito de siempre, suavecito y lleno de ternura. Un regalo infalible.</p>
+    <div class="product-name">Conejita de apego</div>
+    <p class="product-desc">Conejita con vestidito gris, orejas largas y detalles preciosos. Perfecta como muñeco de apego para los más pequeños.</p>
     <div class="product-footer">
-      <span class="product-price">22 €</span>
-      <button class="btn-add" onclick="addToCart('Osito Clásico', 22, '🐻')">Añadir</button>
+      <span class="product-price">30 €</span>
+      <button class="btn-add" onclick="addToCart('Conejita de apego', 30, '🧸')">Añadir</button>
     </div>
   </div>
 </div>
+
+<div class="product-card reveal">
+  <span class="product-badge">Set exclusivo</span>
+  <div class="gallery"><img src="conejoysonajero.jpeg" class="active" alt="Set Conejita + sonajero de apego"></div>
+  <div class="product-body">
+    <div class="product-name">Set Conejita + sonajero de apego</div>
+    <p class="product-desc">El set perfecto: conejita de apego con vestidito verde y su sonajero a juego con aro de madera natural. Ideal para recién nacidos.</p>
+    <div class="product-footer">
+      <span class="product-price">45 €</span>
+      <button class="btn-add" onclick="addToCart('Set Conejita + sonajero de apego', 45, '🧸')">Añadir</button>
+    </div>
+  </div>
+</div>
+
 <div class="product-card reveal">
   
-  <div class="product-img">🐰</div>
+  <div class="gallery" data-total="2">
+          <img src="jirafa1.jpeg" class="active" alt="Jirafa de apego"><img src="jirafa2.jpeg" class="" alt="Jirafa de apego">
+          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
+          <button class="gallery-btn next" onclick="galNext(this)">›</button>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
+        </div>
   <div class="product-body">
-    <div class="product-name">Conejita de Pascua</div>
-    <p class="product-desc">Conejita con vestidito, perfecta para regalar en cualquier ocasión.</p>
+    <div class="product-name">Jirafa de apego</div>
+    <p class="product-desc">Jirafa adorable en tonos crema y marrón con corazón bordado. Una figura única que enamora a bebés y mayores.</p>
     <div class="product-footer">
-      <span class="product-price">25 €</span>
-      <button class="btn-add" onclick="addToCart('Conejita de Pascua', 25, '🐰')">Añadir</button>
+      <span class="product-price">35 €</span>
+      <button class="btn-add" onclick="addToCart('Jirafa de apego', 35, '🧸')">Añadir</button>
     </div>
   </div>
 </div>
-<div class="product-card reveal">
-  <span class="product-badge">Nuevo</span>
-  <div class="product-img">🦊</div>
-  <div class="product-body">
-    <div class="product-name">Zorrito del Bosque</div>
-    <p class="product-desc">Zorrito con colores otoñales y detalles únicos. Mucho carácter.</p>
-    <div class="product-footer">
-      <span class="product-price">28 €</span>
-      <button class="btn-add" onclick="addToCart('Zorrito del Bosque', 28, '🦊')">Añadir</button>
-    </div>
-  </div>
-</div>
+
 <div class="product-card reveal">
   
-  <div class="product-img">🐳</div>
+  <div class="gallery" data-total="2">
+          <img src="conejopetoamarillo.jpeg" class="active" alt="Conejito de apego"><img src="conejopetoblanco.jpeg" class="" alt="Conejito de apego">
+          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
+          <button class="gallery-btn next" onclick="galNext(this)">›</button>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
+        </div>
   <div class="product-body">
-    <div class="product-name">Ballena Marina</div>
-    <p class="product-desc">Ballena azul preciosa con textura suave. Encanta a todas las edades.</p>
+    <div class="product-name">Conejito de apego</div>
+    <p class="product-desc">Pequeño conejito gris con peto, tierno e irresistible. Disponible con peto amarillo o blanco. Indica tu preferencia al pedir.</p>
     <div class="product-footer">
-      <span class="product-price">20 €</span>
-      <button class="btn-add" onclick="addToCart('Ballena Marina', 20, '🐳')">Añadir</button>
-    </div>
-  </div>
-</div>
-<div class="product-card reveal">
-  
-  <div class="product-img">🌵</div>
-  <div class="product-body">
-    <div class="product-name">Cactus Sonriente</div>
-    <p class="product-desc">Cactus con florecita, perfecto para quien lo tiene todo.</p>
-    <div class="product-footer">
-      <span class="product-price">15 €</span>
-      <button class="btn-add" onclick="addToCart('Cactus Sonriente', 15, '🌵')">Añadir</button>
-    </div>
-  </div>
-</div>
-<div class="product-card reveal">
-  
-  <div class="product-img">🐼</div>
-  <div class="product-body">
-    <div class="product-name">Oso Polar</div>
-    <p class="product-desc">Osito en blanco y negro, tierno e irresistible.</p>
-    <div class="product-footer">
-      <span class="product-price">24 €</span>
-      <button class="btn-add" onclick="addToCart('Oso Polar', 24, '🐼')">Añadir</button>
+      <span class="product-price">18 €</span>
+      <button class="btn-add" onclick="addToCart('Conejito de apego', 18, '🧸')">Añadir</button>
     </div>
   </div>
 </div>
@@ -549,12 +574,28 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 updateCartUI();
+updateCartUI();
+</script>
 
-// Hamburger menu
+<script>
+function galMove(btn, dir) {
+  const gallery = btn.closest('.gallery');
+  const imgs = gallery.querySelectorAll('img');
+  const dots = gallery.querySelectorAll('.gallery-dot');
+  let current = [...imgs].findIndex(i => i.classList.contains('active'));
+  imgs[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (current + dir + imgs.length) % imgs.length;
+  imgs[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+function galPrev(btn) { galMove(btn, -1); }
+function galNext(btn) { galMove(btn, 1); }
+</script>
+<script>
 const menuBtn = document.getElementById('menu-btn');
 const dropdown = document.getElementById('nav-dropdown');
 const navOverlay = document.getElementById('nav-overlay');
-
 menuBtn.addEventListener('click', () => {
   menuBtn.classList.toggle('open');
   dropdown.classList.toggle('open');
@@ -565,6 +606,5 @@ navOverlay.addEventListener('click', () => {
   dropdown.classList.remove('open');
   navOverlay.classList.remove('open');
 });
-
 </script>
 </body></html>
