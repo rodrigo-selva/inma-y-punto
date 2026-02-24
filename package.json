@@ -1,0 +1,8 @@
+{
+  "name": "inma-y-punto",
+  "version": "1.0.0",
+  "description": "Tienda artesanal de crochet",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
