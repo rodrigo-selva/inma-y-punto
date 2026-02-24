@@ -273,6 +273,21 @@ footer p { font-size: 0.75rem; }
   font-size: 0.75rem; font-weight: 600; color: var(--text);
 }
 
+
+/* MOBILE NAV FIX */
+@media (max-width: 600px) {
+  nav { padding: 0 1rem; height: 60px; }
+  .nav-logo img { height: 30px; }
+  .nav-logo-text { font-size: 0.95rem; }
+  .nav-cart {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+  }
+  .nav-cart span:first-of-type { display: none; } /* hide cart emoji on very small */
+  .nav-dropdown { top: 60px; }
+}
+
 </style>
 </head>
 <body>
