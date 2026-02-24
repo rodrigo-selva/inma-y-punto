@@ -357,12 +357,12 @@ footer p { font-size: 0.75rem; }
   <p>La historia detrás de cada punto y cada figura.</p>
 </div>
 
-<section style="padding:6rem 3rem;max-width:900px;margin:0 auto;">
+<section style="padding:6rem 3rem;max-width:1000px;margin:0 auto;">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
 
     <div class="reveal">
       <span style="font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--sage-dark);display:block;margin-bottom:1rem;">Mi historia</span>
-      <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:1.5rem;line-height:1.2;">Artesanía que<br>nace del alma</h2>
+      <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--dark);margin-bottom:1.5rem;line-height:1.2;">Artesanía que<br>nace del alma</h2>
       <p style="line-height:1.9;opacity:0.7;margin-bottom:1rem;font-size:0.93rem;">Soy Inma, y llevo años convirtiendo hilo y aguja en pequeñas obras de arte. Cada figura que creo es única, trabajada con mimo y paciencia, pensando en la persona que la va a recibir.</p>
       <p style="line-height:1.9;opacity:0.7;margin-bottom:1rem;font-size:0.93rem;">No hay dos iguales. No hay máquinas. Solo manos, tiempo, y mucho cariño puesto en cada punto.</p>
       <p style="line-height:1.9;opacity:0.7;font-size:0.93rem;">Cada encargo es especial para mí, y me esfuerzo por hacer que cada figura sea exactamente lo que imaginas.</p>
@@ -439,21 +439,6 @@ function addToCart(name, price, emoji) {
   if (existing) { existing.qty++; }
   else { cart.push({ name, price, emoji, qty: 1 }); }
   saveCart(); updateCartUI();
-// Hamburger menu
-const menuBtn = document.getElementById('menu-btn');
-const dropdown = document.getElementById('nav-dropdown');
-const navOverlay = document.getElementById('nav-overlay');
-
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  dropdown.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-});
-navOverlay.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  dropdown.classList.remove('open');
-  navOverlay.classList.remove('open');
-});
   openCart();
   const btn = event.target;
   const orig = btn.textContent;
@@ -466,39 +451,9 @@ function changeQty(i, delta) {
   cart[i].qty += delta;
   if (cart[i].qty <= 0) cart.splice(i, 1);
   saveCart(); updateCartUI();
-// Hamburger menu
-const menuBtn = document.getElementById('menu-btn');
-const dropdown = document.getElementById('nav-dropdown');
-const navOverlay = document.getElementById('nav-overlay');
-
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  dropdown.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-});
-navOverlay.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  dropdown.classList.remove('open');
-  navOverlay.classList.remove('open');
-});
 }
 
-function removeItem(i) { cart.splice(i, 1); saveCart(); updateCartUI();
-// Hamburger menu
-const menuBtn = document.getElementById('menu-btn');
-const dropdown = document.getElementById('nav-dropdown');
-const navOverlay = document.getElementById('nav-overlay');
-
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  dropdown.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-});
-navOverlay.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  dropdown.classList.remove('open');
-  navOverlay.classList.remove('open');
-}); }
+function removeItem(i) { cart.splice(i, 1); saveCart(); updateCartUI(); }
 
 function openCart() {
   document.getElementById('cart-overlay').classList.add('open');
@@ -548,22 +503,10 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 updateCartUI();
-// Hamburger menu
-const menuBtn = document.getElementById('menu-btn');
-const dropdown = document.getElementById('nav-dropdown');
-const navOverlay = document.getElementById('nav-overlay');
+updateCartUI();
+</script>
 
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  dropdown.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-});
-navOverlay.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  dropdown.classList.remove('open');
-  navOverlay.classList.remove('open');
-});
-
+<script>
 // Hamburger menu
 const menuBtn = document.getElementById('menu-btn');
 const dropdown = document.getElementById('nav-dropdown');
