@@ -295,38 +295,24 @@ footer p { font-size: 0.75rem; }
   font-style: italic;
   font-weight: 300;
 }
-</style>
 
 /* GALLERY */
 .product-card .gallery {
-  position: relative;
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
-  background: var(--linen);
-  display: block;
+  position: relative; width: 100%; height: 260px;
+  overflow: hidden; background: var(--linen);
 }
 .product-card .gallery img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  display: block;
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0; transition: opacity 0.4s ease;
 }
 .product-card .gallery img.active { opacity: 1; }
 .gallery-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
   background: rgba(255,255,255,0.9); border: none; cursor: pointer;
   width: 30px; height: 30px; border-radius: 50%;
-  font-size: 1.1rem; line-height: 1;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 5; transition: background 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  padding: 0;
+  font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+  z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.15); padding: 0;
 }
 .gallery-btn:hover { background: white; }
 .gallery-btn.prev { left: 0.5rem; }
@@ -340,7 +326,7 @@ footer p { font-size: 0.75rem; }
   background: rgba(255,255,255,0.55); transition: background 0.2s;
 }
 .gallery-dot.active { background: white; }
-
+</style>
 <title>Muñecos · Inma y Punto</title>
 </head>
 <body>
@@ -349,24 +335,15 @@ footer p { font-size: 0.75rem; }
 </div>
 <div id="nav-overlay" class="nav-overlay"></div>
 <nav>
-  <button class="nav-menu-btn" id="menu-btn" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-dropdown" id="nav-dropdown">
-    <a href="index.html">Inicio</a>
+  <button class="nav-menu-btn" id="menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
+  <div class="nav-dropdown" id="nav-dropdown"><a href="index.html">Inicio</a>
 <a href="marcapaginas.html">Marcapáginas</a>
 <a href="munecos.html" class="active">Muñecos</a>
 <a href="personalizado.html">Personalizado</a>
 <a href="sobremi.html">Sobre mí</a>
-
-  </div>
-  <a class="nav-logo" href="index.html">
-    <img src="logo4.png" alt="Inma y Punto">
-    <span class="nav-logo-text">Inma y Punto</span>
-  </a>
-  <button class="nav-cart" onclick="openCart()">
-    🛒 Cesta <span class="cart-count">0</span>
-  </button>
+</div>
+  <a class="nav-logo" href="index.html"><img src="logo4.png" alt="Inma y Punto"><span class="nav-logo-text">Inma y Punto</span></a>
+  <button class="nav-cart" onclick="openCart()">🛒 Cesta <span class="cart-count">0</span></button>
 </nav>
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
@@ -402,16 +379,11 @@ footer p { font-size: 0.75rem; }
 </div>
 
 <section class="products-section">
-  <div class="products-grid">
-    
-<div class="product-card reveal">
-  <span class="product-badge">Más pedido</span>
-  <div class="gallery" data-total="2">
-          <img src="conejovestidogris1.jpeg" class="active" alt="Conejita de apego"><img src="conejovestidogris2.jpeg" class="" alt="Conejita de apego">
+  <div class="products-grid"><div class="product-card reveal">
+  <span class="product-badge">Más pedido</span><div class="gallery" data-total="2"><img src="conejovestidogris1.jpeg" class="active" alt="Conejita de apego" loading="lazy"><img src="conejovestidogris2.jpeg" class="" alt="Conejita de apego" loading="lazy">
           <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
           <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
-        </div>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
   <div class="product-body">
     <div class="product-name">Conejita de apego</div>
     <p class="product-desc">Conejita con vestidito gris, orejas largas y detalles preciosos. Perfecta como muñeco de apego para los más pequeños.</p>
@@ -421,10 +393,8 @@ footer p { font-size: 0.75rem; }
     </div>
   </div>
 </div>
-
 <div class="product-card reveal">
-  <span class="product-badge">Set exclusivo</span>
-  <div class="gallery"><img src="conejoysonajero.jpeg" class="active" alt="Set Conejita + sonajero de apego"></div>
+  <span class="product-badge">Set exclusivo</span><div class="gallery"><img src="conejoysonajero.jpeg" class="active" alt="Set Conejita + sonajero de apego" loading="lazy"></div>
   <div class="product-body">
     <div class="product-name">Set Conejita + sonajero de apego</div>
     <p class="product-desc">El set perfecto: conejita de apego con vestidito verde y su sonajero a juego con aro de madera natural. Ideal para recién nacidos.</p>
@@ -434,15 +404,11 @@ footer p { font-size: 0.75rem; }
     </div>
   </div>
 </div>
-
 <div class="product-card reveal">
-  
-  <div class="gallery" data-total="2">
-          <img src="jirafa1.jpeg" class="active" alt="Jirafa de apego"><img src="jirafa2.jpeg" class="" alt="Jirafa de apego">
+  <div class="gallery" data-total="2"><img src="jirafa1.jpeg" class="active" alt="Jirafa de apego" loading="lazy"><img src="jirafa2.jpeg" class="" alt="Jirafa de apego" loading="lazy">
           <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
           <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
-        </div>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
   <div class="product-body">
     <div class="product-name">Jirafa de apego</div>
     <p class="product-desc">Jirafa adorable en tonos crema y marrón con corazón bordado. Una figura única que enamora a bebés y mayores.</p>
@@ -452,15 +418,11 @@ footer p { font-size: 0.75rem; }
     </div>
   </div>
 </div>
-
 <div class="product-card reveal">
-  
-  <div class="gallery" data-total="2">
-          <img src="conejopetoamarillo.jpeg" class="active" alt="Conejito de apego"><img src="conejopetoblanco.jpeg" class="" alt="Conejito de apego">
+  <div class="gallery" data-total="2"><img src="conejopetoamarillo.jpeg" class="active" alt="Conejito de apego" loading="lazy"><img src="conejopetoblanco.jpeg" class="" alt="Conejito de apego" loading="lazy">
           <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
           <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div>
-        </div>
+          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
   <div class="product-body">
     <div class="product-name">Conejito de apego</div>
     <p class="product-desc">Pequeño conejito gris con peto, tierno e irresistible. Disponible con peto amarillo o blanco. Indica tu preferencia al pedir.</p>
@@ -469,8 +431,7 @@ footer p { font-size: 0.75rem; }
       <button class="btn-add" onclick="addToCart('Conejito de apego', 18, '🧸')">Añadir</button>
     </div>
   </div>
-</div>
-  </div>
+</div></div>
 </section>
 
 <footer>
@@ -597,29 +558,18 @@ function galMove(btn, dir) {
   const gallery = btn.closest('.gallery');
   const imgs = gallery.querySelectorAll('img');
   const dots = gallery.querySelectorAll('.gallery-dot');
-  let current = [...imgs].findIndex(i => i.classList.contains('active'));
-  imgs[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = (current + dir + imgs.length) % imgs.length;
-  imgs[current].classList.add('active');
-  dots[current].classList.add('active');
+  let cur = [...imgs].findIndex(i => i.classList.contains('active'));
+  imgs[cur].classList.remove('active'); dots[cur].classList.remove('active');
+  cur = (cur + dir + imgs.length) % imgs.length;
+  imgs[cur].classList.add('active'); dots[cur].classList.add('active');
 }
 function galPrev(btn) { galMove(btn, -1); }
 function galNext(btn) { galMove(btn, 1); }
-</script>
-<script>
+
 const menuBtn = document.getElementById('menu-btn');
 const dropdown = document.getElementById('nav-dropdown');
 const navOverlay = document.getElementById('nav-overlay');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  dropdown.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-});
-navOverlay.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  dropdown.classList.remove('open');
-  navOverlay.classList.remove('open');
-});
+menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('open'); dropdown.classList.toggle('open'); navOverlay.classList.toggle('open'); });
+navOverlay.addEventListener('click', () => { menuBtn.classList.remove('open'); dropdown.classList.remove('open'); navOverlay.classList.remove('open'); });
 </script>
 </body></html>
