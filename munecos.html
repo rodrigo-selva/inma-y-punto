@@ -326,6 +326,13 @@ footer p { font-size: 0.75rem; }
   background: rgba(255,255,255,0.55); transition: background 0.2s;
 }
 .gallery-dot.active { background: white; }
+
+/* MOBILE PRODUCT IMAGES */
+@media (max-width: 600px) {
+  .product-card .gallery { height: 220px; }
+  .product-card .gallery img { object-position: center top; }
+  .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
 </style>
 <title>Muñecos · Inma y Punto</title>
 </head>
@@ -342,7 +349,7 @@ footer p { font-size: 0.75rem; }
 <a href="personalizado.html">Personalizado</a>
 <a href="sobremi.html">Sobre mí</a>
 </div>
-  <a class="nav-logo" href="index.html"><span class="nav-logo-text">Inma y Punto</span></a>
+  <a class="nav-logo" href="index.html"><img src="logo4.png" alt="Inma y Punto"><span class="nav-logo-text">Inma y Punto</span></a>
   <button class="nav-cart" onclick="openCart()">🛒 Cesta <span class="cart-count">0</span></button>
 </nav>
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
