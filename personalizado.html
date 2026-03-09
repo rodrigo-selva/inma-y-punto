@@ -343,6 +343,11 @@ footer p { font-size: 0.75rem; }
       <span>Total</span>
       <strong id="cart-total">0.00 €</strong>
     </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;opacity:0.7;padding:0.5rem 0;border-top:1px solid var(--linen);margin-top:0.5rem;">
+      <span>Envío (España peninsular)</span>
+      <span id="shipping-cost">3,99 €</span>
+    </div>
+    <div style="font-size:0.72rem;opacity:0.5;text-align:right;margin-bottom:0.5rem;" id="shipping-note">Gratis a partir de 50 €</div>
     <button id="btn-checkout" class="btn-checkout" onclick="goToCheckout()">
       🔒 Pagar ahora
     </button>
@@ -463,6 +468,23 @@ let cart = JSON.parse(localStorage.getItem('inma_cart') || '[]');
 function saveCart() { localStorage.setItem('inma_cart', JSON.stringify(cart)); }
 
 function updateCartUI() {
+  // Update shipping display
+  const totalEl = document.getElementById('cart-total');
+  const shippingEl = document.getElementById('shipping-cost');
+  const shippingNote = document.getElementById('shipping-note');
+  if (shippingEl) {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    if (cart.length === 0) {
+      shippingEl.textContent = '—';
+      shippingNote.textContent = '';
+    } else if (total >= 50) {
+      shippingEl.textContent = 'Gratis 🎉';
+      shippingNote.textContent = '';
+    } else {
+      shippingEl.textContent = '3,99 €';
+      shippingNote.textContent = `Añade ${(50 - total).toFixed(2).replace('.',',')} € más para envío gratis`;
+    }
+  }
   const count = cart.reduce((s, i) => s + i.qty, 0);
   document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
   const itemsEl = document.getElementById('cart-items');
