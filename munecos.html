@@ -466,7 +466,6 @@ function saveCart() { localStorage.setItem('inma_cart', JSON.stringify(cart)); }
 
 function updateCartUI() {
   // Update shipping display
-  const totalEl = document.getElementById('cart-total');
   const shippingEl = document.getElementById('shipping-cost');
   const shippingNote = document.getElementById('shipping-note');
   if (shippingEl) {
