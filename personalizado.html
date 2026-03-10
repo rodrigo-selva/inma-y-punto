@@ -508,8 +508,10 @@ function updateCartUI() {
     `).join('');
   }
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const shipping = (cart.length === 0 || total >= 50) ? 0 : 3.99;
+  const grandTotal = total + shipping;
   const totalEl = document.getElementById('cart-total');
-  if (totalEl) totalEl.textContent = total.toFixed(2) + ' €';
+  if (totalEl) totalEl.textContent = grandTotal.toFixed(2) + ' €';
 }
 
 function addToCart(name, price, emoji) {
@@ -552,7 +554,7 @@ async function goToCheckout() {
     const res = await fetch('/.netlify/functions/create-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: cart }),
+      body: JSON.stringify({ items: cart, shipping: (cart.reduce((s,i)=>s+i.price*i.qty,0) >= 50) ? 0 : 3.99 }),
     });
     const data = await res.json();
     if (data.url) {
