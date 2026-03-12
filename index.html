@@ -415,6 +415,86 @@ footer p { font-size: 0.75rem; }
 
 
 
+
+<section style="padding:5rem 3rem;background:var(--linen);">
+  <div style="max-width:700px;margin:0 auto;">
+    <p style="text-align:center;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;margin-bottom:0.8rem;">FAQ</p>
+    <h2 style="text-align:center;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:2rem;color:var(--dark);margin-bottom:3rem;">Preguntas frecuentes</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuánto tarda en llegar mi pedido?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Los pedidos se envían en un plazo de 3 a 5 días laborables desde la confirmación del pago. El envío por Correos suele tardar entre 2 y 4 días adicionales en España peninsular.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Puedo personalizar un muñeco?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">¡Claro! Puedes pedir un encargo personalizado en la sección <a href="personalizado.html" style="color:var(--sage-dark);">Personalizado</a>. Cuéntame qué tienes en mente (colores, tamaño, tipo de figura) y lo hacemos realidad.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Son seguros para bebés?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Las figuras de apego están hechas con hilo de algodón suave y seguro, pero siempre bajo supervisión adulta. No incluyen piezas pequeñas sueltas. Si tienes dudas sobre algún producto concreto, consúltame por WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Con qué materiales están hechas las figuras?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Todas las figuras están confeccionadas con hilo de algodón o acrílico de alta calidad, rellenas de fibra de poliéster hipoalergénica. Cada pieza es única y tejida completamente a mano.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Puedo pagar con PayPal o tarjeta?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Sí, aceptamos tarjeta de crédito/débito, PayPal, Apple Pay y Google Pay. El pago es 100% seguro a través de Stripe.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué hago si el pedido llega en mal estado?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Escríbeme en las primeras 48 horas con fotos del producto y el embalaje a rodrigoselvaoltra7@gmail.com o por WhatsApp al 623 231 447. Lo solucionamos sin complicaciones.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-list { display:flex;flex-direction:column;gap:0; }
+.faq-item { border-bottom:1px solid var(--linen); filter: brightness(0.93); }
+.faq-item:first-child { border-top:1px solid var(--linen); filter: brightness(0.93); }
+.faq-q { width:100%;background:none;border:none;padding:1.3rem 0;text-align:left;font-family:'Be Vietnam Pro',sans-serif;font-size:0.95rem;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem; }
+.faq-icon { font-size:1.3rem;font-weight:300;flex-shrink:0;transition:transform 0.25s;color:var(--sage-dark); }
+.faq-q.open .faq-icon { transform:rotate(45deg); }
+.faq-a { font-size:0.88rem;line-height:1.8;opacity:0.65;padding:0 0 1.2rem;display:none; }
+.faq-a.open { display:block; }
+</style>
+
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+</script>
+
 <footer>
   <div class="footer-links">
     <a href="index.html">Inicio</a>
@@ -422,6 +502,7 @@ footer p { font-size: 0.75rem; }
     <a href="munecos.html">Muñecos</a>
     <a href="personalizado.html">Personalizado</a>
     <a href="sobremi.html">Sobre mí</a>
+    <a href="legal.html">Aviso legal</a>
   </div>
   <p>© 2025 Inma y Punto · Hecho con 🧶 y amor</p>
 </footer>

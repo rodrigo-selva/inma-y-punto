@@ -18,7 +18,6 @@
   --white: #fffaf2;
 }
 html { scroll-behavior: smooth; }
-html { background: var(--dark); }
 body { background: var(--cream); color: var(--text); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 300; overflow-x: hidden; }
 
 
@@ -189,7 +188,7 @@ nav {
 .page-hero p { margin-top: 1rem; opacity: 0.6; font-size: 0.95rem; max-width: 480px; margin-inline: auto; }
 
 /* PRODUCT GRID */
-.products-section { padding: 5rem 3rem 6rem; }
+.products-section { padding: 5rem 3rem; }
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -298,46 +297,8 @@ footer p { font-size: 0.75rem; }
   font-style: italic;
   font-weight: 300;
 }
-
-/* GALLERY */
-.product-card .gallery {
-  position: relative; width: 100%; height: 260px;
-  overflow: hidden; background: var(--linen);
-}
-.product-card .gallery img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  opacity: 0; transition: opacity 0.4s ease;
-}
-.product-card .gallery img.active { opacity: 1; }
-.gallery-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.9); border: none; cursor: pointer;
-  width: 30px; height: 30px; border-radius: 50%;
-  font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
-  z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.15); padding: 0;
-}
-.gallery-btn:hover { background: white; }
-.gallery-btn.prev { left: 0.5rem; }
-.gallery-btn.next { right: 0.5rem; }
-.gallery-dots {
-  position: absolute; bottom: 0.5rem; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 5px; z-index: 5;
-}
-.gallery-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(255,255,255,0.55); transition: background 0.2s;
-}
-.gallery-dot.active { background: white; }
-
-/* MOBILE PRODUCT IMAGES */
-@media (max-width: 600px) {
-  .product-card .gallery { height: 380px; }
-  .product-card .gallery img { object-position: center center; }
-  .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-}
 </style>
-<title>Muñecos · Inma y Punto</title>
+<title>Aviso Legal · Inma y Punto</title>
 </head>
 <body>
 <div style="background:var(--sage-dark);color:white;text-align:center;padding:0.6rem 1rem;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;">
@@ -348,7 +309,7 @@ footer p { font-size: 0.75rem; }
   <button class="nav-menu-btn" id="menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
   <div class="nav-dropdown" id="nav-dropdown"><a href="index.html">Inicio</a>
 <a href="marcapaginas.html">Marcapáginas</a>
-<a href="munecos.html" class="active">Muñecos</a>
+<a href="munecos.html">Muñecos</a>
 <a href="personalizado.html">Personalizado</a>
 <a href="sobremi.html">Sobre mí</a>
 </div>
@@ -387,67 +348,110 @@ footer p { font-size: 0.75rem; }
   </div>
 </div>
 
+
 <div class="page-hero">
-  <span class="tag">Colección</span>
-  <h1>Muñecos</h1>
-  <p>Figuras de crochet artesanales únicas. Ideales para regalar o decorar con mimo tu hogar.</p>
+  <span class="tag">Información legal</span>
+  <h1>Aviso Legal</h1>
+  <p>Política de privacidad, cookies y condiciones de uso.</p>
 </div>
 
-<section class="products-section">
-  <div class="products-grid"><div class="product-card reveal">
-  <span class="product-badge">Más pedido</span><div class="gallery" data-total="2"><img src="conejovestidogris1.jpeg" class="active" alt="Conejita de apego" loading="lazy"><img src="conejovestidogris2.jpeg" class="" alt="Conejita de apego" loading="lazy">
-          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
-          <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
-  <div class="product-body">
-    <div class="product-name">Conejita de apego</div>
-    <p class="product-desc">Conejita con vestidito gris, orejas largas y detalles preciosos. Perfecta como muñeco de apego para los más pequeños.</p>
-    <div class="product-footer">
-      <span class="product-price">30 €</span>
-      <button class="btn-add" onclick="addToCart('Conejita de apego', 30, 'conejovestidogris1.jpeg')">Añadir</button>
-    </div>
+<section style="padding:4rem 3rem 6rem;max-width:860px;margin:0 auto;">
+
+  <!-- Tabs -->
+  <div style="display:flex;gap:0;border-bottom:2px solid var(--linen);margin-bottom:3rem;">
+    <button onclick="showTab('aviso')" id="tab-aviso" style="padding:0.8rem 1.5rem;border:none;background:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;border-bottom:2px solid var(--sage-dark);margin-bottom:-2px;color:var(--sage-dark);font-weight:700;">Aviso legal</button>
+    <button onclick="showTab('privacidad')" id="tab-privacidad" style="padding:0.8rem 1.5rem;border:none;background:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);opacity:0.5;">Privacidad</button>
+    <button onclick="showTab('cookies')" id="tab-cookies" style="padding:0.8rem 1.5rem;border:none;background:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);opacity:0.5;">Cookies</button>
   </div>
-</div>
-<div class="product-card reveal">
-  <span class="product-badge">Set exclusivo</span><div class="gallery"><img src="conejoysonajero.jpeg" class="active" alt="Set Conejita + sonajero de apego" loading="lazy"></div>
-  <div class="product-body">
-    <div class="product-name">Set Conejita + sonajero de apego</div>
-    <p class="product-desc">El set perfecto: conejita de apego con vestidito verde y su sonajero a juego con aro de madera natural. Ideal para recién nacidos.</p>
-    <div class="product-footer">
-      <span class="product-price">45 €</span>
-      <button class="btn-add" onclick="addToCart('Set Conejita + sonajero de apego', 45, 'conejoysonajero.jpeg')">Añadir</button>
-    </div>
+
+  <!-- Aviso Legal -->
+  <div id="tab-aviso-content">
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">1. Datos identificativos</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se informa:</p>
+    <ul style="line-height:2;opacity:0.7;font-size:0.9rem;padding-left:1.5rem;margin-bottom:1.5rem;">
+      <li><strong>Titular:</strong> Inmaculada Oltra Marín</li>
+      <li><strong>DNI:</strong> ***455</li>
+      <li><strong>Domicilio:</strong> Orihuela, Alicante</li>
+      <li><strong>Email:</strong> rodrigoselvaoltra7@gmail.com</li>
+      <li><strong>Actividad:</strong> Venta de figuras artesanales de crochet</li>
+    </ul>
+
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">2. Condiciones de uso</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">El acceso y uso de este sitio web implica la aceptación de las presentes condiciones. El usuario se compromete a hacer un uso adecuado de los contenidos y servicios ofrecidos.</p>
+
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">3. Propiedad intelectual</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">Todos los contenidos de este sitio web (textos, imágenes, diseño) son propiedad de Inmaculada Oltra Marín y están protegidos por la legislación española e internacional sobre propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
+
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">4. Política de devoluciones</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:0.5rem;font-size:0.9rem;">Al ser productos artesanales hechos a mano, no se aceptan devoluciones por cambio de opinión. Sin embargo:</p>
+    <ul style="line-height:2;opacity:0.7;font-size:0.9rem;padding-left:1.5rem;margin-bottom:1.5rem;">
+      <li>Si el producto llega <strong>dañado</strong>, contáctanos en 48h con fotografías.</li>
+      <li>Si el producto <strong>no corresponde</strong> con el pedido, lo reemplazamos sin coste.</li>
+      <li>Contacto: rodrigoselvaoltra7@gmail.com o WhatsApp 623 231 447</li>
+    </ul>
   </div>
-</div>
-<div class="product-card reveal">
-  <div class="gallery" data-total="2"><img src="jirafa1.jpeg" class="active" alt="Jirafa de apego" loading="lazy"><img src="jirafa2.jpeg" class="" alt="Jirafa de apego" loading="lazy">
-          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
-          <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
-  <div class="product-body">
-    <div class="product-name">Jirafa de apego</div>
-    <p class="product-desc">Jirafa adorable en tonos crema y marrón con corazón bordado. Una figura única que enamora a bebés y mayores.</p>
-    <div class="product-footer">
-      <span class="product-price">35 €</span>
-      <button class="btn-add" onclick="addToCart('Jirafa de apego', 35, 'jirafa1.jpeg')">Añadir</button>
-    </div>
+
+  <!-- Privacidad -->
+  <div id="tab-privacidad-content" style="display:none;">
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">Política de privacidad</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">De conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), te informamos sobre el tratamiento de tus datos personales.</p>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">Responsable del tratamiento</h3>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">Inmaculada Oltra Marín · rodrigoselvaoltra7@gmail.com · Orihuela, Alicante</p>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">Datos que recogemos</h3>
+    <ul style="line-height:2;opacity:0.7;font-size:0.9rem;padding-left:1.5rem;margin-bottom:1.5rem;">
+      <li>Nombre y apellidos</li>
+      <li>Dirección de envío</li>
+      <li>Email y teléfono</li>
+      <li>Datos de pago (gestionados por Stripe, no los almacenamos)</li>
+    </ul>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">Finalidad y base legal</h3>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">Tus datos se utilizan exclusivamente para gestionar tu pedido y enviártelo. La base legal es la ejecución del contrato de compraventa.</p>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">Tus derechos</h3>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:0.5rem;font-size:0.9rem;">Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición y portabilidad escribiendo a rodrigoselvaoltra7@gmail.com. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
   </div>
-</div>
-<div class="product-card reveal">
-  <div class="gallery" data-total="2"><img src="conejopetoamarillo.jpeg" class="active" alt="Conejito de apego" loading="lazy"><img src="conejopetoblanco.jpeg" class="" alt="Conejito de apego" loading="lazy">
-          <button class="gallery-btn prev" onclick="galPrev(this)">‹</button>
-          <button class="gallery-btn next" onclick="galNext(this)">›</button>
-          <div class="gallery-dots"><div class="gallery-dot active"></div><div class="gallery-dot "></div></div></div>
-  <div class="product-body">
-    <div class="product-name">Conejito de apego</div>
-    <p class="product-desc">Pequeño conejito gris con peto, tierno e irresistible. Disponible con peto amarillo o blanco. Indica tu preferencia al pedir.</p>
-    <div class="product-footer">
-      <span class="product-price">18 €</span>
-      <button class="btn-add" onclick="addToCart('Conejito de apego', 18, 'conejopetoamarillo.jpeg')">Añadir</button>
+
+  <!-- Cookies -->
+  <div id="tab-cookies-content" style="display:none;">
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.3rem;color:var(--dark);margin-bottom:1rem;">Política de cookies</h2>
+    <p style="line-height:1.9;opacity:0.7;margin-bottom:1.5rem;font-size:0.9rem;">Este sitio web utiliza cookies propias y de terceros para mejorar tu experiencia de navegación.</p>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">¿Qué cookies usamos?</h3>
+    <div style="border:1px solid var(--linen);margin-bottom:1.5rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 2fr;background:var(--linen);padding:0.7rem 1rem;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;">
+        <span>Cookie</span><span>Tipo</span><span>Finalidad</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 2fr;padding:0.7rem 1rem;font-size:0.82rem;border-top:1px solid var(--linen);opacity:0.7;line-height:1.6;">
+        <span>inma_cart</span><span>Propia</span><span>Guardar tu cesta de la compra entre páginas</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 2fr;padding:0.7rem 1rem;font-size:0.82rem;border-top:1px solid var(--linen);opacity:0.7;line-height:1.6;">
+        <span>__stripe_*</span><span>Tercero</span><span>Procesamiento seguro de pagos (Stripe)</span>
+      </div>
     </div>
+
+    <h3 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:0.8rem;">¿Cómo desactivarlas?</h3>
+    <p style="line-height:1.9;opacity:0.7;font-size:0.9rem;">Puedes configurar tu navegador para rechazar cookies. Ten en cuenta que desactivar la cookie de la cesta impedirá que funcione correctamente la tienda.</p>
   </div>
-</div></div>
+
 </section>
+
+<script>
+function showTab(tab) {
+  ['aviso','privacidad','cookies'].forEach(t => {
+    document.getElementById('tab-' + t + '-content').style.display = t === tab ? 'block' : 'none';
+    const btn = document.getElementById('tab-' + t);
+    btn.style.borderBottom = t === tab ? '2px solid var(--sage-dark)' : 'none';
+    btn.style.marginBottom = t === tab ? '-2px' : '0';
+    btn.style.color = t === tab ? 'var(--sage-dark)' : 'var(--text)';
+    btn.style.fontWeight = t === tab ? '700' : '400';
+    btn.style.opacity = t === tab ? '1' : '0.5';
+  });
+}
+</script>
+
 
 <footer>
   <div class="footer-links">
@@ -585,20 +589,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 updateCartUI();
 updateCartUI();
 </script>
-
 <script>
-function galMove(btn, dir) {
-  const gallery = btn.closest('.gallery');
-  const imgs = gallery.querySelectorAll('img');
-  const dots = gallery.querySelectorAll('.gallery-dot');
-  let cur = [...imgs].findIndex(i => i.classList.contains('active'));
-  imgs[cur].classList.remove('active'); dots[cur].classList.remove('active');
-  cur = (cur + dir + imgs.length) % imgs.length;
-  imgs[cur].classList.add('active'); dots[cur].classList.add('active');
-}
-function galPrev(btn) { galMove(btn, -1); }
-function galNext(btn) { galMove(btn, 1); }
-
 const menuBtn = document.getElementById('menu-btn');
 const dropdown = document.getElementById('nav-dropdown');
 const navOverlay = document.getElementById('nav-overlay');
