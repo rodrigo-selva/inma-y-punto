@@ -6,7 +6,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { items } = JSON.parse(event.body);
+    const { items, shipping } = JSON.parse(event.body);
 
     const line_items = items.map(item => ({
       price_data: {
@@ -19,6 +19,21 @@ exports.handler = async (event) => {
       },
       quantity: item.qty,
     }));
+
+    // Add shipping as a line item if applicable
+    if (shipping && shipping > 0) {
+      line_items.push({
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: 'Gastos de envío',
+            description: 'Envío a España peninsular',
+          },
+          unit_amount: Math.round(shipping * 100),
+        },
+        quantity: 1,
+      });
+    }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card', 'paypal'],
