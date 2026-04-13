@@ -39,8 +39,8 @@ exports.handler = async (event) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${event.headers.origin}/exito.html`,
-      cancel_url: `${event.headers.origin}/index.html`,
+      success_url: 'https://inmaypunto.com/exito.html',
+      cancel_url: 'https://inmaypunto.com/index.html',
       shipping_address_collection: {
         allowed_countries: ['ES', 'PT', 'FR', 'DE', 'IT', 'GB'],
       },
