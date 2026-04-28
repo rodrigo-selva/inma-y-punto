@@ -416,6 +416,172 @@ footer p { font-size: 0.75rem; }
 
 
 
+<!-- LO ÚLTIMO QUE HE HECHO -->
+<section style="padding:6rem 3rem;background:var(--cream);">
+  <div style="text-align:center;margin-bottom:4rem;" class="reveal">
+    <span style="font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--sage-dark);">Recién terminado</span>
+    <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--dark);margin-top:0.5rem;">Lo último que he hecho</h2>
+  </div>
+
+  <div class="ultimas-grid">
+
+    <!-- Llaveros rosas -->
+    <div class="ultimas-card reveal">
+      <div class="ultimas-img-wrap">
+        <img src="llaveros-rosas.jpg" alt="Llaveros de rosa de crochet" loading="lazy">
+      </div>
+      <p class="ultimas-label">Llaveros de rosa 🌹</p>
+    </div>
+
+    <!-- Muñeco flor — slider 2 fotos -->
+    <div class="ultimas-card reveal">
+      <div class="ultimas-img-wrap slider-wrap">
+        <img src="muneco-flor-1.jpg" alt="Muñeco flor de crochet - detalle" class="slide active" loading="lazy">
+        <img src="muneco-flor-2.jpg" alt="Muñeco flor de crochet - frontal" class="slide" loading="lazy">
+        <button class="slide-btn slide-prev" onclick="moveSlide(this,-1)" aria-label="Anterior">&#8249;</button>
+        <button class="slide-btn slide-next" onclick="moveSlide(this,1)" aria-label="Siguiente">&#8250;</button>
+        <div class="slide-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <p class="ultimas-label">Muñeco flor 🌸</p>
+    </div>
+
+    <!-- Ramo de flores -->
+    <div class="ultimas-card reveal">
+      <div class="ultimas-img-wrap">
+        <img src="ramo-flores.jpg" alt="Ramo de flores de crochet" loading="lazy">
+      </div>
+      <p class="ultimas-label">Ramo de flores 💐</p>
+    </div>
+
+    <!-- Moto crochet -->
+    <div class="ultimas-card reveal">
+      <div class="ultimas-img-wrap">
+        <img src="moto-crochet.jpg" alt="Moto de crochet naranja" loading="lazy">
+      </div>
+      <p class="ultimas-label">Moto de crochet 🏍️</p>
+    </div>
+
+    <!-- The Clover -->
+    <div class="ultimas-card reveal">
+      <div class="ultimas-img-wrap">
+        <img src="the-clover.jpg" alt="The Clover - trébol de crochet azul" loading="lazy">
+      </div>
+      <p class="ultimas-label">The Clover 🍀</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.ultimas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ultimas-card {
+  background: var(--white);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.ultimas-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+.ultimas-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* square */
+  overflow: hidden;
+  background: var(--linen);
+}
+.ultimas-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+.ultimas-card:hover .ultimas-img-wrap img {
+  transform: scale(1.04);
+}
+.ultimas-label {
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+}
+
+/* Slider */
+.slider-wrap .slide { display: none; }
+.slider-wrap .slide.active { display: block; }
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  z-index: 2;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+.slide-btn:hover { background: white; }
+.slide-prev { left: 0.6rem; }
+.slide-next { right: 0.6rem; }
+.slide-dots {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: background 0.2s;
+}
+.dot.active { background: white; }
+
+@media (max-width: 768px) {
+  .ultimas-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+}
+</style>
+
+<script>
+function moveSlide(btn, dir) {
+  const wrap = btn.closest('.slider-wrap');
+  const slides = wrap.querySelectorAll('.slide');
+  const dots = wrap.querySelectorAll('.dot');
+  let current = [...slides].findIndex(s => s.classList.contains('active'));
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (current + dir + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+</script>
+
+<!-- FAQ -->
 <section style="padding:5rem 3rem;background:var(--linen);">
   <div style="max-width:700px;margin:0 auto;">
     <p style="text-align:center;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;margin-bottom:0.8rem;">FAQ</p>
