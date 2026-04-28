@@ -382,7 +382,7 @@ footer p { font-size: 0.75rem; }
 </section>
 
 <!-- LO ÚLTIMO QUE HE HECHO -->
-<section style="padding:6rem 3rem;background:var(--cream);">
+<section style="padding:6rem 3rem;background:var(--white);">
   <div style="text-align:center;margin-bottom:4rem;" class="reveal">
     <span style="font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--sage-dark);">Recién terminado</span>
     <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--dark);margin-top:0.5rem;">Lo último que he hecho</h2>
@@ -528,7 +528,12 @@ footer p { font-size: 0.75rem; }
 .dot.active { background: white; }
 
 @media (max-width: 768px) {
-  .ultimas-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .ultimas-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+@media (max-width: 480px) {
+  .ultimas-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .ultimas-card[style*="grid-column"] { grid-column: span 1 !important; }
+  .ultimas-img-wrap[style*="padding-top"] { padding-top: 65% !important; }
 }
 </style>
 
@@ -547,7 +552,7 @@ function moveSlide(btn, dir) {
 </script>
 
 <!-- CATEGORÍAS -->
-<section style="padding:6rem 3rem;background:var(--white);">
+<section style="padding:6rem 3rem;background:var(--cream);">
   <div style="text-align:center;margin-bottom:4rem;" class="reveal">
     <span style="font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--sage-dark);">Explora la tienda</span>
     <h2 style="font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--dark);margin-top:0.5rem;">Nuestra colección</h2>
